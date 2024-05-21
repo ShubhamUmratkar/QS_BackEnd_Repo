@@ -2,6 +2,10 @@ package com.application.services;
 
 import java.util.List;
 
+import com.application.model.TransactiobDetails;
+import com.razorpay.Order;
+import com.razorpay.RazorpayClient;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.application.model.User;
@@ -10,6 +14,9 @@ import com.application.repository.UserRepository;
 @Service
 public class UserService 
 {
+	private static final String KEY="rzp_test_tem0H7TFgmpa9q";
+	private static final String KEY_SECRET="mJNWLwctr2HwRkC3480x1YXq";
+	private static final String CURRENCY="INR";
 	@Autowired
 	private UserRepository userRepo;
 	
@@ -47,4 +54,30 @@ public class UserService
 	{
 		return (List<User>)userRepo.findProfileByEmail(email);
 	}
+
+	public TransactiobDetails createtransaction(Double amount){
+		try{
+			JSONObject jsonObject=new JSONObject();
+			jsonObject.put("amount",amount*100);
+			jsonObject.put("currency",CURRENCY);
+			RazorpayClient razorpayClient= new RazorpayClient(KEY,KEY_SECRET);
+			Order order=razorpayClient.orders.create(jsonObject);
+			System.out.println(order);
+			return prepareTransactiondetails(order);
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
+
+	private TransactiobDetails prepareTransactiondetails(Order order){
+		String orderId=order.get(("id"));
+		String currency = order.get("currency");
+		Integer amount = order.get("amount");
+		TransactiobDetails transactiobDetails= new TransactiobDetails(orderId,currency,amount,KEY);
+		return transactiobDetails;
+
+	}
+
+
 }
