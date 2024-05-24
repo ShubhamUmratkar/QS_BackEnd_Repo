@@ -2,8 +2,6 @@ package com.application.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.application.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,15 +18,17 @@ import com.application.model.Course;
 import com.application.model.Professor;
 import com.application.model.User;
 import com.application.model.Wishlist;
+import com.application.services.ChapterService;
+import com.application.services.CourseService;
+import com.application.services.ProfessorService;
+import com.application.services.WishlistService;
 
 @RestController
 public class ProfessorController 
 {	
 	@Autowired
 	private ProfessorService professorService;
-	private UserService userService;
-
-
+	
 	@Autowired
 	private CourseService courseService;
 	
@@ -111,38 +111,11 @@ public class ProfessorController
 	
 	@PostMapping("/addnewchapter")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public ResponseEntity<?> addNewChapters(@RequestBody Chapter chapter) throws Exception
+	public Chapter addNewChapters(@RequestBody Chapter chapter) throws Exception
 	{
-		boolean courseExists = chapterService.doesCourseExist(chapter.getCoursename());
-
-		if(chapter.getCoursename().equals(chapterService.fetchByCoursename(chapter.getCoursename()))){
-			Chapter chapterObj = chapterService.addNewChapter(chapter);
-			return new ResponseEntity<>(chapterObj,HttpStatus.OK);
-		}
-//		Chapter chapterObj = null;
-//		chapterObj = chapterService.addNewChapter(chapter);
-		return new ResponseEntity<String>("course not found",HttpStatus.NO_CONTENT);
-//		boolean courseExists = chapterService.doesCourseExist(chapter.getCoursename());
-//
-//		if (courseExists) {
-//			Chapter chapterObj = chapterService.addNewChapter(chapter);
-//			return new ResponseEntity<>(chapterObj, HttpStatus.OK);
-//		} else {
-//			return new ResponseEntity<String>("Course not found", HttpStatus.NO_CONTENT);
-//		}
-//		Course existingCourse = courseService.fetchCourseByCoursename(chapter.getCoursename());
-//
-//		if (existingCourse != null) {
-//			// Course already exists, use the existing course for adding the chapter
-//			existingCourse.getChapterList().add(chapter);
-//			courseService.saveCourse(existingCourse);
-//			//Chapter chapterObj = chapterService.addNewChapter(chapter);
-//			return new ResponseEntity<>(existingCourse, HttpStatus.OK);
-//		} else {
-//			return new ResponseEntity<String>("Course not found", HttpStatus.NO_CONTENT);
-//		}
-
-
+		Chapter chapterObj = null;
+		chapterObj = chapterService.addNewChapter(chapter);
+		return chapterObj;
 	}
 	
 	@GetMapping("/acceptstatus/{email}")

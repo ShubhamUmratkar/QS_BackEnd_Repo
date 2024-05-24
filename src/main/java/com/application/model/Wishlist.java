@@ -4,13 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Wishlist
+public class Wishlist 
 {
 	@Id
 	private String coursename;
 	private String courseid;
 	private String likeduser;
-
 	private String likedusertype;
 	private String instructorname;
 	private String instructorinstitution;
@@ -20,13 +19,13 @@ public class Wishlist
 	private String skilllevel;
 	private String language;
 	private String description;
-
-	public Wishlist()
+	
+	public Wishlist() 
 	{
 		super();
 	}
 
-	public Wishlist(String coursename, String courseid, String likeduser, String likedusertype, String instructorname, String instructorinstitution, String enrolledcount, String coursetype, String websiteurl, String skilllevel, String language, String description)
+	public Wishlist(String coursename, String courseid, String likeduser, String likedusertype, String instructorname, String instructorinstitution, String enrolledcount, String coursetype, String websiteurl, String skilllevel, String language, String description) 
 	{
 		super();
 		this.coursename = coursename;
@@ -43,122 +42,122 @@ public class Wishlist
 		this.description = description;
 	}
 
-	public String getCoursename()
+	public String getCoursename() 
 	{
 		return coursename;
 	}
 
-	public void setCoursename(String coursename)
+	public void setCoursename(String coursename) 
 	{
 		this.coursename = coursename;
 	}
 
-	public String getCourseid()
+	public String getCourseid() 
 	{
 		return courseid;
 	}
 
-	public void setCourseid(String courseid)
+	public void setCourseid(String courseid) 
 	{
 		this.courseid = courseid;
 	}
-
-	public String getLikeduser()
+	
+	public String getLikeduser() 
 	{
 		return likeduser;
 	}
 
-	public void setLikeduser(String likeduser)
+	public void setLikeduser(String likeduser) 
 	{
 		this.likeduser = likeduser;
 	}
 
-	public String getLikedusertype()
+	public String getLikedusertype() 
 	{
 		return likedusertype;
 	}
 
-	public void setLikedusertype(String likedusertype)
+	public void setLikedusertype(String likedusertype) 
 	{
 		this.likedusertype = likedusertype;
 	}
 
-	public String getInstructorname()
+	public String getInstructorname() 
 	{
 		return instructorname;
 	}
 
-	public void setInstructorname(String instructorname)
+	public void setInstructorname(String instructorname) 
 	{
 		this.instructorname = instructorname;
 	}
 
-	public String getInstructorinstitution()
+	public String getInstructorinstitution() 
 	{
 		return instructorinstitution;
 	}
 
-	public void setInstructorinstitution(String instructorinstitution)
+	public void setInstructorinstitution(String instructorinstitution) 
 	{
 		this.instructorinstitution = instructorinstitution;
 	}
 
-	public String getEnrolledcount()
+	public String getEnrolledcount() 
 	{
 		return enrolledcount;
 	}
 
-	public void setEnrolledcount(String enrolledcount)
+	public void setEnrolledcount(String enrolledcount) 
 	{
 		this.enrolledcount = enrolledcount;
 	}
 
-	public String getCoursetype()
+	public String getCoursetype() 
 	{
 		return coursetype;
 	}
 
-	public void setCoursetype(String coursetype)
+	public void setCoursetype(String coursetype) 
 	{
 		this.coursetype = coursetype;
 	}
-
-	public String getWebsiteurl()
+	
+	public String getWebsiteurl() 
 	{
 		return websiteurl;
 	}
 
-	public void setWebsiteurl(String websiteurl)
+	public void setWebsiteurl(String websiteurl) 
 	{
 		this.websiteurl = websiteurl;
 	}
 
-	public String getSkilllevel()
+	public String getSkilllevel() 
 	{
 		return skilllevel;
 	}
 
-	public void setSkilllevel(String skilllevel)
+	public void setSkilllevel(String skilllevel) 
 	{
 		this.skilllevel = skilllevel;
 	}
 
-	public String getLanguage()
+	public String getLanguage() 
 	{
 		return language;
 	}
 
-	public void setLanguage(String language)
+	public void setLanguage(String language) 
 	{
 		this.language = language;
 	}
 
-	public String getDescription()
+	public String getDescription() 
 	{
 		return description;
 	}
 
-	public void setDescription(String description)
+	public void setDescription(String description) 
 	{
 		this.description = description;
 	}

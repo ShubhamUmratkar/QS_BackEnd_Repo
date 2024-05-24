@@ -31,8 +31,4 @@ public class ChapterService
 	{
 		return (List<Chapter>)chapterRepo.findByCoursename(coursename);
 	}
-
-	public boolean doesCourseExist(String coursename) {
-		return chapterRepo.existsByCoursename(coursename);
-	}
 }
